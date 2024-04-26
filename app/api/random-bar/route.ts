@@ -28,6 +28,9 @@ export const GET = async (res: any) => {
   // return new Response(JSON.stringify(randomBar), { status: 200 });
   const headers = new Headers();
   headers.append("Cache-Control", "no-cache, no-store, must-revalidate");
+  console.log(
+    `Selected index: ${randomIndex}, Bar: ${JSON.stringify(randomBar)}`
+  );
 
   return new Response(JSON.stringify(randomBar), {
     status: 200,

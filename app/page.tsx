@@ -8,7 +8,7 @@ type Bar = {
 };
 
 export default function RandomBarPage() {
-  const [bar, setBar] = useState<Bar>({ name: "test", location: "bar" });
+  const [bar, setBar] = useState<Bar>();
   const [loading, setLoading] = useState(false);
   const [beer, setBeer] = useState("");
 
@@ -26,7 +26,14 @@ export default function RandomBarPage() {
       <motion.h1 className="text-black text-2xl my-12">
         Where should we get a drink?
       </motion.h1>
-      <p>{beer}</p>
+      <motion.p
+        key={beer}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
+        {beer}
+      </motion.p>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
