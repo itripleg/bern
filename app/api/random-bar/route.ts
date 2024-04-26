@@ -25,5 +25,12 @@ export const GET = async (res: any) => {
   ];
   const randomIndex = Math.floor(Math.random() * bars.length);
   const randomBar = bars[randomIndex];
-  return new Response(JSON.stringify(randomBar), { status: 200 });
+  // return new Response(JSON.stringify(randomBar), { status: 200 });
+  const headers = new Headers();
+  headers.append("Cache-Control", "no-cache, no-store, must-revalidate");
+
+  return new Response(JSON.stringify(randomBar), {
+    status: 200,
+    headers: headers,
+  });
 };
