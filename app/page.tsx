@@ -14,7 +14,8 @@ export default function RandomBarPage() {
 
   const fetchRandomBar = async () => {
     setLoading(true);
-    const response = await fetch("/api/random-bar");
+    const url = `/api/random-bar?nocache=${new Date().getTime()}`;
+    const response = await fetch(url);
     const data = await response.json();
     setBar(data);
     setBeer(beer + "🍺");
