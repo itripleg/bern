@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 
 type Bar = {
   name: string;
@@ -24,6 +24,13 @@ export default function RandomBarPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      <motion.p
+        animate={{ scale: 3 }}
+        transition={{ duration: 3 }}
+        // className="animate-bounce"
+      >
+        {beer.length > 10 ? "😵" : ""}
+      </motion.p>
       <motion.h1 className="text-black text-2xl my-12">
         Where should we get a drink?
       </motion.h1>
