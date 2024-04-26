@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export const GET = async (res: any) => {
+export const GET = async () => {
   const bars = [
     { name: "The Tipsy Boar", location: "London, UK" },
     { name: "Margarita Villa", location: "New York, USA" },
@@ -23,7 +23,7 @@ export const GET = async (res: any) => {
     { name: "The Jungle Bar", location: "Rio de Janeiro, Brazil" },
     { name: "The Northern Lights", location: "Reykjavik, Iceland" },
   ];
-  const randomIndex = Math.floor(Math.random() * bars.length);
+  const randomIndex = Math.floor((Math.random() * Date.now()) % bars.length);
   const randomBar = bars[randomIndex];
   // return new Response(JSON.stringify(randomBar), { status: 200 });
   const headers = new Headers();
